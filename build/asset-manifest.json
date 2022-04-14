@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ui-cakap-admin/static/css/main.16df96c0.css",
+    "main.js": "/ui-cakap-admin/static/js/main.8fac8320.js",
+    "static/js/787.e45a30f6.chunk.js": "/ui-cakap-admin/static/js/787.e45a30f6.chunk.js",
+    "static/media/audio_example.mp3": "/ui-cakap-admin/static/media/audio_example.8d14102f3e5d724f1908.mp3",
+    "index.html": "/ui-cakap-admin/index.html",
+    "main.16df96c0.css.map": "/ui-cakap-admin/static/css/main.16df96c0.css.map",
+    "main.8fac8320.js.map": "/ui-cakap-admin/static/js/main.8fac8320.js.map",
+    "787.e45a30f6.chunk.js.map": "/ui-cakap-admin/static/js/787.e45a30f6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16df96c0.css",
+    "static/js/main.8fac8320.js"
+  ]
+}
