@@ -1,41 +1,31 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import {Container, Grid, MenuItem, Select, TextField} from "@mui/material";
+import {Container, Grid, TextField} from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
-import Player from "components/Audio/AudioPlayer";
-import RadioButtonsGroup from "components/RadioButton/RadioButtonsGroup";
 
 import "./FillInTheBlanks.css";
 
-const formatLabel = (label: any, value: any, question: any) => {
-  let field: any;
-  if (question.type === 'text') {
-    field = <TextField id="standard-basic" variant="standard"/>
-  } else if (question.type === 'dropdown') {
-    field = <Select labelId="select-answer" id="select-answer" value='' sx={{height: '30px', width: '150px'}}>
-      {question.options.map((option: any) => <MenuItem value={option.value}>{option.value}</MenuItem>)}
-    </Select>
+const formatLabel = (props: any, text: any) => {
+  let queryString: any;
+  if (props.data.type === 'text') {
+    queryString = text.replace(/\*/g, '<input class="text-replacer" type="text"/>');
   }
-
-  if (!value) {
-    return label;
+  else {
+    queryString = text.replace(/\*/g, addSelect(props.data.options));
   }
-  return (
-    <div>
-      {label.split(value)
-        .reduce((prev: any, current: any, i: any) => {
-          if (!i) {
-            return [current];
-          }
-          return prev.concat(
-            field
-            , current);
-        }, [])
-      }
-    </div>
-  );
+  return queryString;
 };
+
+const addSelect = (options: any) => {
+  return (
+    '<select>' + 
+      options.books.map((item:any, indx: any) => {
+        return '<option value={item.title}>'+ item.title + '</option>'
+      }) + 
+    '</select>'
+  );
+}
 
 export default function FillInTheBlanks(props: any) {
   return (
@@ -48,12 +38,9 @@ export default function FillInTheBlanks(props: any) {
             image={props.data.image}
             alt="earth from space"
           />
-          <Grid>
-            <Player url={props.data.audio}/>
-          </Grid>
           <h3>{props.data.title}</h3>
           <Grid>
-            {formatLabel(props.data.sentence, '*****', props.data)}
+          <div dangerouslySetInnerHTML={ {__html: formatLabel(props, props.data.sentence)} } />
           </Grid>
         </Box>
       </Container>

@@ -4,11 +4,18 @@ import ImageListItem from '@mui/material/ImageListItem';
 
 import "./ImageListGroup.css";
 
-export default function StandardImageList() {
+export default function StandardImageList(props:any) {
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-        {itemData.map((item) => (
+          <img
+                src={`${props.options.image}?w=400&h=400&fit=crop&auto=format`}
+                srcSet={`${props.options.image}?w=400&h=400&fit=crop&auto=format&dpr=2 2x`}
+                alt={props.title}
+                loading="lazy"
+            />
+        {/* {itemData.map((item) => (
             <ImageListItem key={item.img}>
             <img
                 src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
@@ -17,7 +24,7 @@ export default function StandardImageList() {
                 loading="lazy"
             />
             </ImageListItem>
-        ))}
+        ))} */}
         </ImageList>
     </Card>
   );

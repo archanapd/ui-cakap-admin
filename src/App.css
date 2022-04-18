@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  margin: 80px 0 20px 0;
+}
+
+li {
+  list-style: none;
+  text-align: left;
+}
+
+p {
+  white-space: pre;
+}
+
+.text-replacer {
+  width: 100px;
+}

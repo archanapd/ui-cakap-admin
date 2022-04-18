@@ -14,17 +14,18 @@ export default function MultiSelect(props:any) {
       <CssBaseline/>
       <Container maxWidth="lg">
         <Box sx={{bgcolor: 'white', height: '800px'}}>
-        <CardMedia
+        { props.data.image && <CardMedia
             component="img"
             image={props.data.image}
             alt="earth from space"
-        />
+        /> }
          <Grid>
-         <Player url={props.data.audio} />
+         { props.data.audio && <Player url={props.data.audio} />
+          }
         </Grid>
         <h3>{props.data.title}</h3>
         <Grid>
-          {props.data.type === 'box' ? <CheckBoxGroup options={props.data.options} /> : null}
+          {<CheckBoxGroup options={props.data} />}
         </Grid>
         </Box>
       </Container>
