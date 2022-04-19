@@ -12,10 +12,6 @@ const formatLabel = (label: any, value: any, question: any) => {
   let field: any;
   if (question.type === 'text') {
     field = <TextField id="standard-basic" variant="standard"/>
-  } else if (question.type === 'dropdown') {
-    field = <Select labelId="select-answer" id="select-answer" value='' sx={{height: '30px', width: '150px'}}>
-      {question.options.map((option: any) => <MenuItem value={option.value}>{option.value}</MenuItem>)}
-    </Select>
   }
 
   if (!value) {
@@ -23,11 +19,21 @@ const formatLabel = (label: any, value: any, question: any) => {
   }
   return (
     <div>
-      {label.split(value)
-        .reduce((prev: any, current: any, i: any) => {
+      {
+        label.split(value).reduce((prev: any, current: any, i: any) => {
           if (!i) {
             return [current];
+          } else {
+            if (question.type === 'dropdown') {
+              let optionIndex = i - 1;
+              if (question.options[optionIndex]) {
+                field = <Select labelId="select-answer" id="select-answer" value='' sx={{height: '30px', width: '150px'}}>
+                  {question.options[optionIndex].map((option: any) => <MenuItem value={option.value}>{option.value}</MenuItem>)}
+                </Select>
+              }
+            }
           }
+
           return prev.concat(
             field
             , current);

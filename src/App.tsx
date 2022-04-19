@@ -59,33 +59,69 @@ const questions = [
     ]
   },
   {
-    type: 'text',
+    type: 'dropdown',
     image: "https://h5p.org/sites/default/files/h5p/content/620/images/image-568b75eb0dded.jpg",
     audio: url,
     label: 'Checkbox demo',
     options: [
-      {
-        value: 'Bright red',
-        checked: true,
-        correct: true
-      },
-      {
-        value: 'Pink',
-        checked: false,
-        correct: false
-      },
-      {
-        value: 'Blue',
-        checked: false,
-        correct: false
-      }
+      [
+        {
+          value: 'Bright red',
+          checked: true,
+          correct: true
+        },
+        {
+          value: 'Pink',
+          checked: false,
+          correct: false
+        },
+        {
+          value: 'Blue',
+          checked: false,
+          correct: false
+        }
+      ],
+      [
+        {
+          value: 'Small',
+          checked: true,
+          correct: true
+        },
+        {
+          value: 'Medium',
+          checked: false,
+          correct: false
+        },
+        {
+          value: 'Large',
+          checked: false,
+          correct: false
+        }
+      ],
+      [
+        {
+          value: 'One',
+          checked: true,
+          correct: true
+        },
+        {
+          value: 'Two',
+          checked: false,
+          correct: false
+        },
+        {
+          value: 'Three',
+          checked: false,
+          correct: false
+        }
+      ]
     ],
-    sentence: 'Bilberries (Vaccinium myrtillus), also known as \n' +
-      '***** berries are edible, nearly black berries found in nutrient-poor soils.\n' +
+    sentence: 'Bilberries (Vaccinium myrtillus), also known as \n *****' +
+      ' berries are edible, nearly black berries found in nutrient-poor soils.\n *****' +
       '\n' +
-      '***** berries (Rubus chamaemorus) are edible orange berries similar to raspberries or blackberries found in alpine and arctic tundra. \n' +
+      ' berries (Rubus chamaemorus) are edible orange berries similar to raspberries or blackberries found in alpine and arctic tundra. ***** \n' +
       '\n' +
-      '***** Redcurrant (Ribes rubrum) are red translucent berries with a diameter of 8–10 mm, and are closely related to its black colored relative \n' +
+      ' Redcurrant (Ribes rubrum) are red translucent berries with a diameter of 8–10 mm, and are closely related to its black colored relative \n' +
       'currant. ',
   }
 ];
